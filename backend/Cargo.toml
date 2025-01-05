@@ -4,3 +4,8 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
+actix-web = "4"
+dotenv = "0.15.0"
+juniper = "0.16.1"
+reqwest = "0.12.12"
+serde = "1.0.217"

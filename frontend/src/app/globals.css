@@ -1,4 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("@radix-ui/colors/tomato-dark.css");
+@import url("@radix-ui/colors/mauve-dark.css");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -9,6 +12,56 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+}
+
+.dark-editor {
+  --accentBase: var(--tomato-1);
+  --accentBgSubtle: var(--tomato-2);
+  --accentBg: var(--tomato-3);
+  --accentBgHover: var(--tomato-4);
+  --accentBgActive: var(--tomato-5);
+  --accentLine: var(--tomato-6);
+  --accentBorder: var(--tomato-7);
+  --accentBorderHover: var(--tomato-8);
+  --accentSolid: var(--tomato-9);
+  --accentSolidHover: var(--tomato-10);
+  --accentText: var(--tomato-11);
+  --accentTextContrast: var(--tomato-12);
+
+  --baseBase: var(--mauve-1);
+  --baseBgSubtle: var(--mauve-2);
+  --baseBg: var(--mauve-3);
+  --baseBgHover: var(--mauve-4);
+  --baseBgActive: var(--mauve-5);
+  --baseLine: var(--mauve-6);
+  --baseBorder: var(--mauve-7);
+  --baseBorderHover: var(--mauve-8);
+  --baseSolid: var(--mauve-9);
+  --baseSolidHover: var(--mauve-10);
+  --baseText: var(--mauve-11);
+  --baseTextContrast: var(--mauve-12);
+
+  --admonitionTipBg: var(--cyan4);
+  --admonitionTipBorder: var(--cyan8);
+
+  --admonitionInfoBg: var(--grass4);
+  --admonitionInfoBorder: var(--grass8);
+
+  --admonitionCautionBg: var(--amber4);
+  --admonitionCautionBorder: var(--amber8);
+
+  --admonitionDangerBg: var(--red4);
+  --admonitionDangerBorder: var(--red8);
+
+  --admonitionNoteBg: var(--mauve-4);
+  --admonitionNoteBorder: var(--mauve-8);
+
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+  color: white;
+  --basePageBg: black;
+  background: var(--basePageBg);
 }
 
 @media (prefers-color-scheme: dark) {

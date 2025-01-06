@@ -1,5 +1,5 @@
-query PostsByPublication {
-  publication(host: "vaibhavarora.hashnode.dev") {
+query PostsByPublication($host: String!) {
+  publication(host: $host) {
     id
     posts(first: 50) {
       edges {

@@ -24,7 +24,10 @@
             }
           ],
           "description": null,
-          "locations": ["OBJECT", "FIELD_DEFINITION"],
+          "locations": [
+            "OBJECT",
+            "FIELD_DEFINITION"
+          ],
           "name": "requireAuth"
         },
         {
@@ -191,19 +194,29 @@
             }
           ],
           "description": null,
-          "locations": ["INPUT_FIELD_DEFINITION", "FIELD_DEFINITION", "ARGUMENT_DEFINITION"],
+          "locations": [
+            "INPUT_FIELD_DEFINITION",
+            "FIELD_DEFINITION",
+            "ARGUMENT_DEFINITION"
+          ],
           "name": "constraint"
         },
         {
           "args": [],
           "description": null,
-          "locations": ["OBJECT", "FIELD_DEFINITION"],
+          "locations": [
+            "OBJECT",
+            "FIELD_DEFINITION"
+          ],
           "name": "hidden"
         },
         {
           "args": [],
           "description": null,
-          "locations": ["OBJECT", "FIELD_DEFINITION"],
+          "locations": [
+            "OBJECT",
+            "FIELD_DEFINITION"
+          ],
           "name": "private"
         },
         {
@@ -234,7 +247,10 @@
             }
           ],
           "description": null,
-          "locations": ["INPUT_FIELD_DEFINITION", "ARGUMENT_DEFINITION"],
+          "locations": [
+            "INPUT_FIELD_DEFINITION",
+            "ARGUMENT_DEFINITION"
+          ],
           "name": "validate"
         },
         {
@@ -255,7 +271,11 @@
             }
           ],
           "description": "Directs the executor to include this field or fragment only when the `if` argument is true.",
-          "locations": ["FIELD", "FRAGMENT_SPREAD", "INLINE_FRAGMENT"],
+          "locations": [
+            "FIELD",
+            "FRAGMENT_SPREAD",
+            "INLINE_FRAGMENT"
+          ],
           "name": "include"
         },
         {
@@ -276,7 +296,11 @@
             }
           ],
           "description": "Directs the executor to skip this field or fragment when the `if` argument is true.",
-          "locations": ["FIELD", "FRAGMENT_SPREAD", "INLINE_FRAGMENT"],
+          "locations": [
+            "FIELD",
+            "FRAGMENT_SPREAD",
+            "INLINE_FRAGMENT"
+          ],
           "name": "skip"
         },
         {
@@ -293,7 +317,12 @@
             }
           ],
           "description": "Marks an element of a GraphQL schema as no longer supported.",
-          "locations": ["FIELD_DEFINITION", "ARGUMENT_DEFINITION", "INPUT_FIELD_DEFINITION", "ENUM_VALUE"],
+          "locations": [
+            "FIELD_DEFINITION",
+            "ARGUMENT_DEFINITION",
+            "INPUT_FIELD_DEFINITION",
+            "ENUM_VALUE"
+          ],
           "name": "deprecated"
         },
         {
@@ -314,7 +343,9 @@
             }
           ],
           "description": "Exposes a URL that specifies the behavior of this scalar.",
-          "locations": ["SCALAR"],
+          "locations": [
+            "SCALAR"
+          ],
           "name": "specifiedBy"
         }
       ],

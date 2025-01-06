@@ -4,7 +4,13 @@ use crate::services;
 
 #[get("/blogs")]
 async fn get_blogs() -> HttpResponse {
-    HttpResponse::Ok().json("data")
+    let data = services::blogs_service::get_blogs()
+        .await
+        .unwrap()
+        .publication
+        .unwrap();
+
+    HttpResponse::Ok().json(serde_json::to_string(&data).unwrap())
 }
 
 #[get("/blogs/{id}")]

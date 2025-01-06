@@ -4,13 +4,12 @@ use crate::services;
 
 #[get("/blogs")]
 async fn get_blogs() -> HttpResponse {
-    let data = services::blogs_service::get_blogs()
-        .await
-        .unwrap()
-        .publication
-        .unwrap();
+    let data = services::blogs_service::get_blogs().await;
 
-    HttpResponse::Ok().json(serde_json::to_string(&data).unwrap())
+    match data {
+        Ok(data) => HttpResponse::Ok().json(serde_json::to_string(&data).unwrap()),
+        Err(error) => HttpResponse::InternalServerError().body(error),
+    }
 }
 
 #[get("/blogs/{id}")]

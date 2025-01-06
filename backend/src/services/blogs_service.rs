@@ -1,4 +1,5 @@
 use graphql_client::{GraphQLQuery, Response};
+use posts_by_publication::PostsByPublicationPublication;
 use reqwest::Error;
 
 static HASHNODE_URL: &str = "https://gql.hashnode.com";
@@ -13,7 +14,7 @@ type DateTime = String;
 )]
 struct PostsByPublication;
 
-pub async fn get_blogs() -> Result<posts_by_publication::ResponseData, Error> {
+pub async fn get_blogs() -> Result<PostsByPublicationPublication, String> {
     let request_body = PostsByPublication::build_query(posts_by_publication::Variables {
         host: String::from("vaibhavarora.hashnode.dev"),
     });
@@ -26,15 +27,30 @@ pub async fn get_blogs() -> Result<posts_by_publication::ResponseData, Error> {
         Ok(ok_response) => ok_response,
         Err(error) => {
             println!("Error: {}", error);
-            return Err(error);
+            return Err(String::from("Failed to fetch response"));
         }
     }
     .json()
-    .await?;
+    .await
+    .expect("Failed to parse response");
 
-    let response_body = response.data.unwrap();
+    let response_body = match response.data {
+        Some(data) => data,
+        None => {
+            println!("Error: No data in response");
+            return Err(String::from("No data in response!"));
+        }
+    };
 
-    Ok(response_body)
+    let publications = match response_body.publication {
+        Some(publication) => publication,
+        None => {
+            println!("Error: No publication in response");
+            return Err(String::from("No publication found in response!"));
+        }
+    };
+
+    Ok(publications)
 }
 
 pub async fn get_blog(id: String) {}

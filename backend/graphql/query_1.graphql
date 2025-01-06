@@ -1,0 +1,20 @@
+query PostsByPublication {
+  publication(host: "vaibhavarora.hashnode.dev") {
+    id
+    posts(first: 50) {
+      edges {
+        node {
+          id
+          title
+          url
+          coverImage {
+            url
+          }
+          publishedAt
+          slug
+          brief
+        }
+      }
+    }
+  }
+}

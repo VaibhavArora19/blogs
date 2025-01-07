@@ -1,20 +1,12 @@
 "use client";
 
+import { TBlog } from "@/types/blogs";
 import { For, HStack, Icon, IconButton, Text, VStack } from "@chakra-ui/react";
 import Image from "next/image";
 import { useState } from "react";
 import { TiArrowRight } from "react-icons/ti";
 
-type TProps = {
-  tags?: string[];
-  title: string;
-  description: string;
-  date: string;
-  readTime: string;
-  imageUrl: string;
-};
-
-const TitleCard = ({ tags, title, description, date, readTime, imageUrl }: TProps) => {
+const TitleCard = ({ tags, title, brief, publishedAt, readTimeInMinutes, coverImage }: TBlog["node"]) => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
@@ -23,15 +15,19 @@ const TitleCard = ({ tags, title, description, date, readTime, imageUrl }: TProp
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className={`absolute inset-0 bg-cover bg-center blur-[200px] brightness-75 bg-[url('/rock.png')]`}></div>
-      <div className="pl-12 w-[73%]">
+      <div
+        //@ts-expect-error image url exists
+        style={{ "--image-url": `url(${coverImage?.url ? coverImage.url : "/rock.png"})` }}
+        className={`absolute inset-0 bg-cover bg-center blur-[200px] brightness-75 bg-[image:var(--image-url)]`}
+      ></div>
+      <div className={`pl-12 ${coverImage?.url ? "w-[68%]" : "w-[100%]"} pb-8`}>
         {tags && (
           <HStack className="pt-8">
             <For each={tags}>
               {(tag) => (
-                <VStack key={tag}>
+                <VStack key={tag.name}>
                   <IconButton aria-label="Blog tag" variant="surface" size={"md"} padding={2}>
-                    <Text textStyle={"md"}>{tag}</Text>
+                    <Text textStyle={"md"}>{tag.name}</Text>
                   </IconButton>
                 </VStack>
               )}
@@ -39,15 +35,15 @@ const TitleCard = ({ tags, title, description, date, readTime, imageUrl }: TProp
           </HStack>
         )}
 
-        <Text textStyle={"3xl"} className="font-bold mt-8">
+        <Text textStyle={"3xl"} className="font-bold mt-8 w-[90%]">
           {title}
         </Text>
-        <Text textStyle={"md"} className="mt-4 text-gray-300">
-          {description}
+        <Text textStyle={"md"} className="mt-4 text-gray-300 w-[85%] text-clip">
+          {brief.substring(0, 110) + "..."}
         </Text>
         <div className="flex justify-between">
           <Text textStyle={"sm"} className="mt-4 text-gray-500">
-            {date + " . " + readTime}
+            {publishedAt + " . " + readTimeInMinutes + " mins"}
           </Text>
           <Icon
             fontSize={"30px"}
@@ -58,7 +54,9 @@ const TitleCard = ({ tags, title, description, date, readTime, imageUrl }: TProp
           </Icon>
         </div>
       </div>
-      <Image src={imageUrl} alt={title} width={220} height={200} className="w-[27%] shadow-inner brightness-90" />
+      {coverImage?.url !== undefined && (
+        <Image src={coverImage?.url} alt={title} width={220} height={200} className="w-[32%] brightness-90 object-cover" unoptimized />
+      )}
     </div>
   );
 };

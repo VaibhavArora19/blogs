@@ -7,8 +7,12 @@ query PostsByPublication($host: String!) {
           id
           title
           url
+          readTimeInMinutes
           coverImage {
             url
+          }
+          tags {
+            name
           }
           publishedAt
           slug

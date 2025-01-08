@@ -4,7 +4,7 @@ pub mod post_by_slug {
     #![allow(dead_code)]
     use std::result::Result;
     pub const OPERATION_NAME: &str = "PostBySlug";
-    pub const QUERY : & str = "query PostBySlug($host: String!, $slug: String!) {\r\n  publication(host: $host) {\r\n    post(slug: $slug) {\r\n      title\r\n      readTimeInMinutes\r\n      content {\r\n        markdown\r\n      }\r\n      publishedAt\r\n      updatedAt\r\n    }\r\n  }\r\n}\r\n" ;
+    pub const QUERY : & str = "query PostBySlug($host: String!, $slug: String!) {\r\n  publication(host: $host) {\r\n    post(slug: $slug) {\r\n      title\r\n      readTimeInMinutes\r\n      coverImage {\r\n        url\r\n      }\r\n      content {\r\n        markdown\r\n      }\r\n      publishedAt\r\n      updatedAt\r\n    }\r\n  }\r\n}\r\n" ;
     use super::*;
     use serde::{Deserialize, Serialize};
     #[allow(dead_code)]
@@ -35,11 +35,17 @@ pub mod post_by_slug {
         pub title: String,
         #[serde(rename = "readTimeInMinutes")]
         pub read_time_in_minutes: Int,
+        #[serde(rename = "coverImage")]
+        pub cover_image: Option<PostBySlugPublicationPostCoverImage>,
         pub content: PostBySlugPublicationPostContent,
         #[serde(rename = "publishedAt")]
         pub published_at: DateTime,
         #[serde(rename = "updatedAt")]
         pub updated_at: Option<DateTime>,
+    }
+    #[derive(Deserialize)]
+    pub struct PostBySlugPublicationPostCoverImage {
+        pub url: String,
     }
     #[derive(Deserialize)]
     pub struct PostBySlugPublicationPostContent {

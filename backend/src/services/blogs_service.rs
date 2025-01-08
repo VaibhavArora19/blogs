@@ -98,5 +98,7 @@ pub async fn get_blog(slug: String) -> Result<PostBySlugPublication, String> {
         }
     };
 
+    // let p = &publication.post.unwrap().cover_image.unwrap().url;
+
     Ok(publication)
 }

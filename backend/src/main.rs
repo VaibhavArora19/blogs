@@ -11,3 +11,5 @@ async fn main() -> std::io::Result<()> {
         .run()
         .await;
 }
+
+// cargo watch -c -w src -x run

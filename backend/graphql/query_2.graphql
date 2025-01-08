@@ -2,6 +2,9 @@ query PostBySlug($host: String!, $slug: String!) {
   publication(host: $host) {
     post(slug: $slug) {
       title
+      coverImage {
+        url
+      }
       readTimeInMinutes
       content {
         markdown

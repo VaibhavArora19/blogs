@@ -10,7 +10,7 @@ export const NextLink = (props: HTMLProps<HTMLAnchorElement>) => {
     return <a aria-label={props["aria-label"]} title={href.replace("#", "")} href={href} {...rest} />;
   }
   return (
-    <Link href={href} className={props.className} target={props.target} title={props.target} rel={props.rel}>
+    <Link href={href} className={"text-blue-800 underline underline-offset-4"} target={props.target} title={props.target} rel={props.rel}>
       {props.children}
     </Link>
   );

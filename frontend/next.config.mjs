@@ -3,6 +3,7 @@ const nextConfig = {
   experimental: {
     optimizePackageImports: ["@chakra-ui/react"],
   },
+  transpilePackages: ["next-mdx-remote"],
   images: {
     domains: ["cdn.hashnode.com"],
   },

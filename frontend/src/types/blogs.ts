@@ -22,3 +22,15 @@ export type TBlogsResponse = {
     edges: Array<TBlog>;
   };
 };
+
+export type TBlogResponse = {
+  post: {
+    content: {
+      markdown: string;
+    };
+    publishedAt: string;
+    readTimeInMinutes: number;
+    title: string;
+    updatedAt: string | undefined;
+  };
+};

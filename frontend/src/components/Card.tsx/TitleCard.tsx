@@ -5,13 +5,16 @@ import { For, HStack, Icon, IconButton, Text, VStack } from "@chakra-ui/react";
 import Image from "next/image";
 import { useState } from "react";
 import { TiArrowRight } from "react-icons/ti";
+import { useRouter } from "next/navigation";
 
-const TitleCard = ({ tags, title, brief, publishedAt, readTimeInMinutes, coverImage }: TBlog["node"]) => {
+const TitleCard = ({ tags, title, brief, publishedAt, readTimeInMinutes, coverImage, slug }: TBlog["node"]) => {
   const [isHovered, setIsHovered] = useState(false);
+  const router = useRouter();
 
   return (
     <div
       className={`mt-6 border-2 border-gray-900 rounded-md flex overflow-hidden cursor-pointer relative`}
+      onClick={() => router.push(`/blog/${slug}`)}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >

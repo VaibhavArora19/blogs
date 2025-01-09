@@ -20,7 +20,7 @@ const BlogPage = async ({ params }: { params: Promise<{ slug: string }> }) => {
           {data.post.title}
         </Text>
         <Text className="my-8 text-gray-400 font-medium" textStyle={"2xl"}>
-          {new Date(data.post.publishedAt).toDateString() + " . " + data.post.readTimeInMinutes + " minutes"}
+          {new Date(data.post.publishedAt).toDateString() + " . " + data.post.readTimeInMinutes + " mins"}
         </Text>
         {data.post.coverImage?.url && (
           <Image src={data.post.coverImage?.url} alt={data.post.title} width={1000} height={100} className="flex justify-center my-8" unoptimized />

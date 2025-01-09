@@ -46,7 +46,7 @@ const TitleCard = ({ tags, title, brief, publishedAt, readTimeInMinutes, coverIm
         </Text>
         <div className="flex justify-between">
           <Text textStyle={"sm"} className="mt-4 text-gray-500">
-            {publishedAt + " . " + readTimeInMinutes + " mins"}
+            {new Date(publishedAt).toDateString() + " . " + readTimeInMinutes + " mins"}
           </Text>
           <Icon
             fontSize={"30px"}

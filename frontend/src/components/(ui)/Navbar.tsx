@@ -12,7 +12,7 @@ const Navbar = () => {
         Vaibhav&apos;s Blog
       </Text>
       <div className="flex gap-4">
-        <Text textStyle={"md"} className="p-2 cursor-pointer" onClick={() => router.push("/https://vaibhavcodes.vercel.app/about")}>
+        <Text textStyle={"md"} className="p-2 cursor-pointer" onClick={() => router.replace("https://vaibhavcodes.vercel.app/about")}>
           About
         </Text>
       </div>

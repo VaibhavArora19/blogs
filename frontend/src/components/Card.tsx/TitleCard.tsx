@@ -29,7 +29,7 @@ const TitleCard = ({ tags, title, brief, publishedAt, readTimeInMinutes, coverIm
             <For each={tags}>
               {(tag) => (
                 <VStack key={tag.name}>
-                  <IconButton aria-label="Blog tag" variant="surface" size={"md"} padding={2}>
+                  <IconButton aria-label="Blog tag" variant="surface" size={"md"} padding={2} className="">
                     <Text textStyle={"md"}>{tag.name}</Text>
                   </IconButton>
                 </VStack>
